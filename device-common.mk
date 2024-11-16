@@ -199,12 +199,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
-
-# RIL subscription workaround
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/restart_rild.sh:vendor/bin/restart_rild.sh \
-    $(COMMON_PATH)/configs/rild_restart.rc:vendor/etc/init/rild_restart.rc
-
 # SEC
 PRODUCT_PACKAGES += \
     libsecnativefeature \
