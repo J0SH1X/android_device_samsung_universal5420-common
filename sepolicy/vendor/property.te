@@ -1,2 +1,8 @@
 # camera
 vendor_internal_prop(camera_prop)
+
+# CP-Boot Daemon
+type cpboot-daemon_prop, property_type;
+
+# Modemloader
+type modemloader_prop, property_type;

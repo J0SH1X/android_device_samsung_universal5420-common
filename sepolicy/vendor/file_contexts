@@ -2,6 +2,8 @@
 # Daemons
 #
 
+/(vendor|system/vendor)/modemloader					u:object_r:modemloader_exec:s0
+/(vendor|system/vendor)/bin/sensorhubservice				u:object_r:sensorhubservice_exec:s0
 /(vendor|system/vendor)/bin/vcsFPService      u:object_r:vcsFPService_exec:s0
 /(vendor|system/vendor)/bin/wifiloader        u:object_r:wifiloader_exec:s0
 
@@ -14,6 +16,9 @@
 
 # Camera
 /data/vendor/camera(/.*)?         u:object_r:camera_vendor_data_file:s0
+
+# CP device
+/dev/spi_boot_link							u:object_r:radio_device:s0
 
 # DRM
 /data/vendor/mediadrm(/.*)?    u:object_r:mediadrm_vendor_data_file:s0
@@ -77,8 +82,9 @@
 /dev/stune(/.*)?             u:object_r:cgroup:s0
 /dev/cpuset(/.*)?    u:object_r:cgroup:s0
 
-# GPU
-/dev/mali[0-9]*          u:object_r:gpu_device:s0
+# EMMC
+/dev/block/mmcblk0p[0-9]*    u:object_r:emmcblk_device:s0
+/dev/block/mmcblk[0-9]*	   u:object_r:emmcblk_device:s0
 
 # Fingerprint
 /dev/vfsspi              u:object_r:fingerprint_device:s0
@@ -86,6 +92,9 @@
 
 # GPS
 /dev/ttySAC[0-1]*        u:object_r:gps_device:s0
+
+# GPU
+/dev/mali[0-9]*          u:object_r:gpu_device:s0
 
 # Media
 /dev/m2m1shot_jpeg       u:object_r:camera_device:s0
@@ -105,6 +114,9 @@
 # MIF
 /dev/ehci_power          u:object_r:mif_device:s0
 
+# NFC
+/dev/bcm2079x			   u:object_r:nfc_device:s0
+
 # Radio
 /dev/ump                 u:object_r:ump_device:s0
 /dev/umts.*              u:object_r:mif_device:s0
@@ -113,6 +125,9 @@
 
 # Secure
 /dev/s5p-smem            u:object_r:secmem_device:s0
+
+# Sensors
+/dev/shtc1_sensor		 u:object_r:ssp_device:s0
 
 ####################################
 # Efs Files
@@ -124,6 +139,8 @@
 /efs/FactoryApp/test_nv      u:object_r:radio_factoryapp_efs_file:s0
 /efs/drm(/.*)?               u:object_r:drm_efs_file:s0
 /efs/gyro_cal_data           u:object_r:sensor_efs_file:s0
+/efs/hw_offset				 u:object_r:sensor_efs_file:s0
+/efs/calibration_data		 u:object_r:sensor_efs_file:s0
 /efs/h2k\.dat                u:object_r:cpk_efs_file:s0
 /efs/nv_data.bin(.*)         u:object_r:bin_nv_data_efs_file:s0
 /efs/nv\.log                 u:object_r:bin_nv_data_efs_file:s0
@@ -155,6 +172,7 @@
 ####################################
 # Sysfs
 #
+/sys/qemu_trace(/.*)?	--	u:object_r:sysfs_writable:s0
 
 # Battery/charger
 /sys/devices/platform/sec-battery/power_supply(/.*)?    u:object_r:sysfs_batteryinfo:s0

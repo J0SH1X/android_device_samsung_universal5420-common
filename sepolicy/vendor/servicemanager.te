@@ -2,5 +2,7 @@
 
 allow servicemanager gpsd:dir r_dir_perms;
 allow servicemanager gpsd:file r_file_perms;
-
 allow servicemanager gpsd:process getattr;
+allow servicemanager sensorhubservice:dir r_dir_perms;
+allow servicemanager sensorhubservice:file r_file_perms;
+allow servicemanager sensorhubservice:process getattr;

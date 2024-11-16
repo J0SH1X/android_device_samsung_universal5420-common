@@ -81,7 +81,6 @@ extern "C" {
 //android::SensorManager::createEventQueue(android::String8, int)
   void _ZN7android13SensorManager16createEventQueueENS_7String8Ei(void **retVal, void *sensorMgr, void **str8P, int mode);
 
-
 //data exports we must provide for gps library to be happy
 
 /*
@@ -160,7 +159,6 @@ void _ZN7android13SensorManager16createEventQueueEv(void **retVal, void *sensorM
     void *string;
 
     _ZN7android7String8C1EPKc(&string, "");
-    _ZN7android13SensorManager16createEventQueueENS_7String8Ei(retVal, sensorMgr, &string, 0);
     _ZN7android7String8D1Ev(&string);
 }
 

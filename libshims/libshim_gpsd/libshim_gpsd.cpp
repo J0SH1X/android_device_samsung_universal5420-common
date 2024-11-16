@@ -4,10 +4,12 @@
 
 namespace android {
 
+	extern "C" pthread_mutex_t _ZN7android9SingletonINS_13SensorManagerEE5sLockE = PTHREAD_MUTEX_INITIALIZER;
+
     // android::SensorManager::getSensorList(android::Sensor const* const**) const
     extern "C" void _ZNK7android13SensorManager13getSensorListEPPKPKNS_6SensorE();
     extern "C" void _ZNK7android13SensorManager13getSensorListEPPKPKNS_6SensorE(){};
-
+    
     //android::String16::String16(char const*)
     extern "C" void _ZN7android8String16C1EPKc(void **str16P, const char *str);
 
@@ -24,5 +26,4 @@ namespace android {
         _ZN7android13SensorManager16createEventQueueENS_7String8EiNS_8String16E(retVal, sensorMgr, str8P, mode, &string);
         _ZN7android8String16D1Ev(&string);
     }
-
 }

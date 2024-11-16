@@ -23,8 +23,12 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
 # Audio
+ifneq ($(TARGET_DEVICE), ha3g)
 TARGET_AUDIOHAL_VARIANT := samsung
+endif
 USE_XML_AUDIO_POLICY_CONF := 1
+AUDIOSERVER_MULTILIB := 32
+BOARD_SUPPORTS_SOUND_TRIGGER := true
 
 # Backlight
 BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
@@ -163,6 +167,9 @@ SELINUX_IGNORE_NEVERALLOWS := true
 TARGET_LD_SHIM_LIBS += \
     /vendor/lib/egl/libGLES_mali.so|/vendor/lib/libgutils.so \
     /vendor/lib/libexynoscamera.so|/vendor/lib/libshim_camera.so
+
+TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
+    /vendor/bin/hw/rild=27
 
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true

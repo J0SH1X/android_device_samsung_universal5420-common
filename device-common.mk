@@ -33,15 +33,16 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.universal5420 \
-    audio.r_submix.default \
-    audio.usb.default \
-    tinymix \
     android.hardware.audio.service \
     android.hardware.audio@7.0-impl \
-    android.hardware.audio.effect@7.0-impl
-
+    android.hardware.audio.effect@7.0-impl \
+    android.hardware.soundtrigger@2.2-impl \
+    audio.r_submix.default \
+    audio.usb.default \
+    tinymix
+    
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+	$(COMMON_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(COMMON_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration_7_0.xml \
@@ -57,9 +58,9 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl.exynos5420 \
+    android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    camera.device@1.0-impl.exynos5420 \
+    camera.device@1.0-impl \
     camera.universal5420
 
 # ConfigStore
@@ -68,7 +69,7 @@ PRODUCT_PACKAGES += \
 
 # IR
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl
+    android.hardware.ir@1.0-service.samsung
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -96,8 +97,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
-    libhwc2on1adapter
-
+    libhwc2on1adapter \
+    gralloc.exynos5
+    
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
@@ -154,7 +156,6 @@ PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
     system/core/libprocessgroup/profiles/task_profiles_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
-
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
@@ -197,6 +198,12 @@ PRODUCT_PACKAGES += \
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
+
+
+# RIL subscription workaround
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/restart_rild.sh:vendor/bin/restart_rild.sh \
+    $(COMMON_PATH)/configs/rild_restart.rc:vendor/etc/init/rild_restart.rc
 
 # SEC
 PRODUCT_PACKAGES += \
@@ -258,6 +265,7 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf \
+    android.hardware.wifi@1.0-impl \
     android.hardware.wifi@1.0-service.legacy
 
 PRODUCT_COPY_FILES += \
@@ -265,7 +273,7 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 
 # Properties
--include $(COMMON_PATH)/system_prop.mk
+include $(COMMON_PATH)/system_prop.mk
 
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
