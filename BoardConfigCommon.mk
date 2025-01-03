@@ -33,9 +33,6 @@ BOARD_SUPPORTS_SOUND_TRIGGER := true
 # Backlight
 BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 
-# Binder
-TARGET_USES_64_BIT_BINDER := true
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
