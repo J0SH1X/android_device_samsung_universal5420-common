@@ -73,7 +73,8 @@ BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := zImage
-#BOARD_KERNEL_CMDLINE := The bootloader ignores the cmdline from the boot.img
+#The bootloader ignores the cmdline from the boot.img but build system will also parse this on selinux generation
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
 # Filesystems
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -155,11 +156,11 @@ BOARD_USES_GSC_VIDEO := true
 BOARD_USES_ONLY_GSC0_GSC1 := true
 
 # SELinux
-include device/lineage/sepolicy/exynos/sepolicy.mk
-BOARD_SEPOLICY_TEE_FLAVOR := mobicore
-include device/samsung_slsi/sepolicy/sepolicy.mk
-BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
+#include device/lineage/sepolicy/exynos/sepolicy.mk
+#BOARD_SEPOLICY_TEE_FLAVOR := mobicore
+#include device/samsung_slsi/sepolicy/sepolicy.mk
+#BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+#SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 # For legacy HAL1 camera
 SELINUX_IGNORE_NEVERALLOWS := true
 
