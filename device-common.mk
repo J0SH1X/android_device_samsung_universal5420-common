@@ -15,6 +15,7 @@
 #
 
 COMMON_PATH := device/samsung/universal5420-common
+PRODUCT_ENABLE_UFFD_GC := false
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -56,12 +57,12 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
-# Camera
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl.exynos5420 \
-    android.hardware.camera.provider@2.4-service \
-    camera.device@1.0-impl.exynos5420 \
-    camera.universal5420
+# # Camera
+# PRODUCT_PACKAGES += \
+#     android.hardware.camera.provider@2.4-impl.exynos5420 \
+#     android.hardware.camera.provider@2.4-service \
+#     camera.device@1.0-impl.exynos5420 \
+#     camera.universal5420
 
 # ConfigStore
 PRODUCT_PACKAGES += \
@@ -75,7 +76,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
-    android.hardware.drm@1.4-service.clearkey
+ #   android.hardware.drm@1.4-service.clearkey
 
 # GNNS
 PRODUCT_PACKAGES += \
@@ -149,8 +150,8 @@ PRODUCT_PACKAGES +=  \
     com.android.tethering.inprocess
 
 # Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service.samsung-libperfmgr
+# PRODUCT_PACKAGES += \
+#     android.hardware.power-service.samsung-libperfmgr
 
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
@@ -220,8 +221,8 @@ PRODUCT_COPY_FILES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libshim_camera \
     libgutils
+        #libshim_camera \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -235,12 +236,12 @@ PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.samsung
 
 # Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
+# PRODUCT_PACKAGES += \
+#     vendor.lineage.trust@1.0-service
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.basic
+    android.hardware.usb@1.0-service
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -259,8 +260,8 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf \
-    android.hardware.wifi@1.0-impl \
     android.hardware.wifi@1.0-service.legacy
+      #android.hardware.wifi@1.0-impl \
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
