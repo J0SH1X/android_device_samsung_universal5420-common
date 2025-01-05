@@ -21,7 +21,7 @@ include $(CLEAR_VARS)
 LOCAL_SHARED_LIBRARIES := \
     liblog \
     libcutils \
-    libgui \
+    libgui_vendor \
     libbinder \
     libutils \
     libsensor
