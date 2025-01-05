@@ -58,11 +58,11 @@ PRODUCT_PACKAGES += \
     libbt-vendor
 
 # # Camera
-# PRODUCT_PACKAGES += \
-#     android.hardware.camera.provider@2.4-impl.exynos5420 \
-#     android.hardware.camera.provider@2.4-service \
-#     camera.device@1.0-impl.exynos5420 \
-#     camera.universal5420
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl.exynos5420 \
+    android.hardware.camera.provider@2.4-service \
+    camera.device@1.0-impl.exynos5420 \
+    camera.universal5420
 
 # ConfigStore
 PRODUCT_PACKAGES += \
@@ -221,8 +221,8 @@ PRODUCT_COPY_FILES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libgutils
-        #libshim_camera \
+    libgutils \
+    libshim_camera
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
