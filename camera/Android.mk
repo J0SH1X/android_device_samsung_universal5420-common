@@ -27,7 +27,7 @@ LOCAL_SHARED_LIBRARIES := \
     libhardware \
     liblog \
     libcamera_client \
-    libgui \
+    libgui_vendor \
     libhidlbase \
     libsensor \
     libutils \
@@ -37,6 +37,8 @@ LOCAL_STATIC_LIBRARIES := \
     libarect \
     libbase \
     libminui
+
+    
 
 LOCAL_CFLAGS += -DGAIA_FW_BETA
 
@@ -48,7 +50,8 @@ LOCAL_SRC_FILES:= \
     ExynosCameraHWImpl.cpp
 
 LOCAL_HEADER_LIBRARIES += \
-    libnativebase_headers
+    libnativebase_headers \
+    media_plugin_headers
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libexynoscamera
@@ -79,11 +82,14 @@ LOCAL_SHARED_LIBRARIES := \
     libhardware \
     liblog \
     libcamera_client \
-    libgui \
+    libgui_vendor \
     libhidlbase \
     libsensor \
     libutils \
     android.hidl.token@1.0-utils
+
+    LOCAL_HEADER_LIBRARIES += \
+    media_plugin_headers
 
 LOCAL_STATIC_LIBRARIES := \
     libarect \
