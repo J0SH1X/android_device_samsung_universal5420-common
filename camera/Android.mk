@@ -29,7 +29,6 @@ LOCAL_SHARED_LIBRARIES := \
     libcamera_client \
     libgui_vendor \
     libhidlbase \
-    libsensor \
     libutils \
     android.hidl.token@1.0-utils
 
@@ -37,8 +36,6 @@ LOCAL_STATIC_LIBRARIES := \
     libarect \
     libbase \
     libminui
-
-    
 
 LOCAL_CFLAGS += -DGAIA_FW_BETA
 
@@ -84,7 +81,6 @@ LOCAL_SHARED_LIBRARIES := \
     libcamera_client \
     libgui_vendor \
     libhidlbase \
-    libsensor \
     libutils \
     android.hidl.token@1.0-utils
 
