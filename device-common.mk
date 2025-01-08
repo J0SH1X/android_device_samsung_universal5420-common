@@ -19,6 +19,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 COMMON_PATH := device/samsung/universal5420-common
 PRODUCT_ENABLE_UFFD_GC := false
 
+
+# Apex
+PRODUCT_COMPRESSED_APEX := false
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(COMMON_PATH)/overlay \
