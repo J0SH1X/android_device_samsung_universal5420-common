@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
 COMMON_PATH := device/samsung/universal5420-common
 PRODUCT_ENABLE_UFFD_GC := false
 
